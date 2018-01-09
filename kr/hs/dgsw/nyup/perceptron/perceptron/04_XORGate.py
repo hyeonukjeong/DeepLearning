@@ -12,11 +12,6 @@ def AND(x1, x2):
         print(1)
         return 1
 
-AND(0, 0)
-# 0
-AND(0, 2)
-# 1
-
 def NAND(x1, x2):
     x = np.array([x1, x2])
     w = np.array([-0.5, -0.5])
@@ -28,11 +23,6 @@ def NAND(x1, x2):
     else:
         print(1)
         return 1
-
-NAND(0, 0)
-# 1
-NAND(0, 2)
-# 0
 
 def OR(x1, x2):
     x = np.array([x1, x2])
@@ -46,7 +36,18 @@ def OR(x1, x2):
         print(1)
         return 1
 
-OR(0, 0)
+def XOR(x1, x2):
+    s1 = NAND(x1, x2)
+    s2 = OR(x2, x2)
+    y = AND(s1, s2)
+    print(y)
+    return y
+
+XOR(0, 0)
 # 0
-OR(0, 2)
+XOR(0, 1)
 # 1
+XOR(1, 0)
+# 0
+XOR(1, 1)
+# 0
